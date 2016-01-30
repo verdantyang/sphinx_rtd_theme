@@ -19,6 +19,7 @@ module.exports = function(grunt) {
         }
       }
     },
+    
     copy: {
       fonts: {
         files: [
@@ -166,6 +167,6 @@ module.exports = function(grunt) {
   grunt.registerTask('fonts', ['clean:fonts','copy:fonts']);
   grunt.registerTask('default', ['exec:bower_update','clean:build','sass:dev','browserify:dev','exec:build_sphinx','connect','open','watch']);
   grunt.registerTask('build', ['exec:bower_update','clean:build','sass:build','browserify:build','exec:build_sphinx']);
-  grunt.registerTask('deploy', ['copy:deploy']);
+  grunt.registerTask('deploy', ['sass:build','browserify:build']);
 }
 
